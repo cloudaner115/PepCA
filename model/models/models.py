@@ -105,8 +105,6 @@ class PepCA(nn.Module):
             prot_pep_attention_list, pep_prot_attention_list = self.repeated_module(peptide_sequence,
                                                                                     protein_sequence)
             
-        
-        
         prot_enc, final_prot_pep_attention  = self.final_attention_layer(prot_enc, pep_enc, pep_enc)
         
         prot_enc = self.final_ffn(prot_enc)

@@ -36,12 +36,7 @@ if __name__ == "__main__":
     if args.dataset != "pepnn" and args.dataset != "pepbind" and args.dataset != "interpep" and args.dataset != "bitenet":
         raise ValueError("-d must be set to pepnn, pepbind, bitenet or interpep")
 
-    n_layers = 6
-    d_model = 64
-    n_head = 6
-    d_k = 64
-    d_v = 128
-    d_inner = 64
+
     if not os.path.exists(f'./out_model/{args.dataset}/'):
         os.makedirs(f'./out_model/{args.dataset}/')
     idx = 0
@@ -55,10 +50,10 @@ if __name__ == "__main__":
         idx = 0
     else:
         idx = max(idxs) + 1
-
+    n_layers = 6, d_model = 64, n_head = 6, d_k = 64, d_v = 128, d_inner = 64
     output_file = f'./out_model/{args.dataset}/{args.dataset}_{idx}_{n_layers}_{d_model}_{n_head}_{d_k}_{d_v}_{d_inner}'
-    model = PepCA(n_layers, d_model, n_head,
-                 d_k, d_v, d_inner, dropout=0.1)
+    
+    model = PepCA(n_layers, d_model, n_head, d_k, d_v, d_inner, dropout=0.1)
     model = model.to(device)
 
     if args.dataset == "interpep" or args.dataset == "pepbind" or args.dataset == 'bitenet':

@@ -162,21 +162,13 @@ def train(model, epochs, output_file, dataset,protein_data):
             
             loss.backward()
             
-            optimizer.step()
-            
+            optimizer.step()   
             predict = torch.argmax(outputs_nodes, dim=-1)
-          
-            
             predict = predict.cpu().detach().numpy()
             actual = target.cpu().detach().numpy()
-            
-            
             correct = np.sum(predict == actual)
             total = len(actual[0])
-            
-            
             accuracy +=  correct/total
-                            
             if i == iters - 1:
                 model.eval()
                 run_loss = 0
