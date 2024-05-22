@@ -16,7 +16,7 @@ from sklearn.metrics import roc_auc_score
 from Bio.PDB import Polypeptide
 from sklearn.metrics import precision_recall_curve, auc
 import pandas as pd
-device = 'cuda'
+device = "cuda" if torch.cuda.is_available() else "cpu"
 with open('./data/protein.pkl', 'rb') as f:
     protein_data = pickle.load(f)
 def val_pepnn():

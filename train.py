@@ -13,7 +13,7 @@ import random
 import pickle
 from trainer import *
 from sklearn.metrics import roc_auc_score
-device = 'cuda'
+device = "cuda" if torch.cuda.is_available() else "cpu"
 with open('./data/protein.pkl', 'rb') as f:
     protein_data = pickle.load(f)
 SEED = 42
