@@ -31,3 +31,8 @@ python train.py -d pepnn
 ```bash
 python val.py -d pepnn 
 ```
+
+## Predict binding site
+```bash
+python predict.py -prot prot.fasta -pep pep.fasta 
+```
