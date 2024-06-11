@@ -73,8 +73,6 @@ class RepeatedModule(nn.Module):
             
             pep_prot_attention_list.append(pep_prot_attention)
             
-        
-        
         return prot_enc, pep_enc, peptide_attention_list, prot_attention_list,\
             prot_pep_attention_list, pep_prot_attention_list
     

@@ -15,6 +15,7 @@ from fairscale.nn.wrap import enable_wrap, wrap
 import os
 
 device = "cuda" if torch.cuda.is_available() else "cpu"
+#device = "cpu"
 # Load ESM-2 model
 model, alphabet = esm.pretrained.esm2_t33_650M_UR50D()
 batch_converter = alphabet.get_batch_converter()

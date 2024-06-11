@@ -57,8 +57,6 @@ def train_pepnn(model, epochs, output_file,protein_data):
             correct = np.sum(predict == actual)
             total = len(actual[0])
             accuracy +=  correct/total
-                  
-
             if i == iters - 1:
                 model.eval()
                 run_loss = 0
@@ -205,7 +203,6 @@ def train(model, epochs, output_file, dataset,protein_data):
                         torch.save(model.state_dict(),output_file+'_loss.pth')  
                         print("Saved model successfully!")
 
-            
                 if all_acc[-1]  == max(all_acc):
                         print("Saving model with new max acc")
                         torch.save(model.state_dict(),output_file+'_acc.pth')  
